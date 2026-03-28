@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Image Gallery</title>
+
+<style>
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Gradient Background */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2, #ff758c);
+    background-size: 300% 300%;
+    animation: gradientMove 8s infinite alternate;
+    color: white;
+    text-align: center;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+    0% { background-position: left; }
+    100% { background-position: right; }
+}
+
+/* Header */
+h1 {
+    padding: 20px;
+    letter-spacing: 2px;
+}
+
+/* Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card */
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+
+    /* Multiple transitions */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, rotate 0.4s ease;
+}
+
+/* Image */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+
+    /* Smooth zoom */
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Title */
+.card h3 {
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+/* Overlay Effect */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* Hover Effects */
+.card:hover {
+    transform: translateY(-10px) scale(1.05) rotate(1deg);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.5);
+}
+
+.card:hover img {
+    transform: scale(1.2);
+    filter: brightness(80%);
+}
+
+.card:hover h3 {
+    color: #ffdd57;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Extra effect: border glow */
+.card:hover {
+    border: 2px solid rgba(255,255,255,0.4);
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>✨ Image Gallery</h1>
+
+<div class="gallery">
+
+    <div class="card">
+        <img src="https://picsum.photos/id/1015/300/200">
+        <h3>Mountain</h3>
+    </div>
+
+    <div class="card">
+        <img src="https://picsum.photos/id/1016/300/200">
+        <h3>Forest</h3>
+    </div>
+
+    <div class="card">
+        <img src="https://picsum.photos/id/1018/300/200">
+        <h3>River</h3>
+    </div>
+
+    <div class="card">
+        <img src="https://picsum.photos/id/1020/300/200">
+        <h3>Desert</h3>
+    </div>
+
+    <div class="card">
+        <img src="https://picsum.photos/id/1024/300/200">
+        <h3>Dog</h3>
+    </div>
+
+    <div class="card">
+        <img src="https://picsum.photos/id/1035/300/200">
+        <h3>Beach</h3>
+    </div>
+
+    <div class="card">
+        <img src="https://picsum.photos/id/1040/300/200">
+        <h3>City</h3>
+    </div>
+
+    <div class="card">
+        <img src="https://picsum.photos/id/1050/300/200">
+        <h3>Sunset</h3>
+    </div>
+
+</div>
+
+</body>
+</html>
